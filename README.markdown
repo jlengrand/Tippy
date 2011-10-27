@@ -21,7 +21,9 @@ cv.NamedWindow("HSV display")
 cv.ShowImage("HSV display", imgHSV)
 cv.WaitKey(0)
 `
+
 The same code using Tippy would give :
+
 `
 import cv
 import tippy as tp
