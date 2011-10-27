@@ -11,7 +11,7 @@ This project aims at magnifying the power of OpenCV in using the power of Python
 
 Here is a simple example. Let's imagine we have an RGB image, and we want to display it in HSV space. 
 The Python OpenCV code would be:
-'
+`
 import cv 
 
 img = cv.LoadImage('test.jpg')
@@ -20,16 +20,16 @@ cv.CvtColor(img, imgHSV, cv.CV_RGB2HSV)
 cv.NamedWindow("HSV display")
 cv.ShowImage("HSV display", imgHSV)
 cv.WaitKey(0)
-'
+`
 The same code using Tippy would give :
-'
+`
 import cv
 import tippy as tp
 
 img = cv.LoadImage('test.jpg')
 imgHSV = tp.RGB2HSV(img)
 tp.DisplayWait("HSV display", imgHSV, 0)
-'
+`
 
 Hence, the main objective is to keep the best of OpenCV while reducing the amount of code needed to get things working smoothly. Tippy contains templates in which you simply have to fill the parts corresponding to your precise needs.
 
