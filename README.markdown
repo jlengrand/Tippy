@@ -11,9 +11,9 @@ This project aims at magnifying the power of OpenCV in using the power of Python
 
 Here is a simple example. Let's imagine we have an RGB image, and we want to display it in HSV space. 
 The Python OpenCV code would be:
+
 `
 import cv 
-
 img = cv.LoadImage('test.jpg')
 imgHSV = cv.CreateImage( cv.GetSize(img), img.depth, img.nChannels)
 cv.CvtColor(img, imgHSV, cv.CV_RGB2HSV)
@@ -27,7 +27,6 @@ The same code using Tippy would give :
 `
 import cv
 import tippy as tp
-
 img = cv.LoadImage('test.jpg')
 imgHSV = tp.RGB2HSV(img)
 tp.DisplayWait("HSV display", imgHSV, 0)
