@@ -84,3 +84,4 @@ I would enjoy having feedback if you use this theme.
 Feel free to mail me for any comment or request. 
 
 You can contact me at jlengrand at gmail dot com, or in my [current website](http://www.lengrandlambert.fr)
+
