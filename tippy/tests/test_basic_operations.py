@@ -34,5 +34,5 @@ class Test(unittest.TestCase):
         self.assertEqual(self.img_1c.depth, out_img.depth)
         self.assertEqual(cv.GetSize(self.img_1c), cv.GetSize(out_img))
                 
-if __name__ == '__main__':
-    unittest.main()
+#if __name__ == '__main__':
+#    unittest.main()
