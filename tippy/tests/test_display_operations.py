@@ -30,9 +30,9 @@ class Test(unittest.TestCase):
     ## TESTS
     def test_display_single_image(self):
         #exception still to be found!
-        self.assertRaises(TypeError, display_single_image(self.img, x_pos="A"))
-        self.assertRaises(TypeError, display_single_image(self.img, name=2))
-        self.assertRaises(TypeError, display_single_image(self.fake_img ))
+        self.assertRaises(TypeError, lambda: do.display_single_image(self.img, x_pos="A"))
+        self.assertRaises(TypeError, lambda: do.display_single_image(self.img, name=2))
+        self.assertRaises(TypeError, lambda: do.display_single_image(self.fake_img ))
 
-if __name__ == "__main__":
-    unittest.main()
+#if __name__ == "__main__":
+    #unittest.main()

@@ -37,7 +37,7 @@ class Test(unittest.TestCase):
             self.assertEqual(img.nChannels, out_img.nChannels)
             self.assertEqual(img.depth, out_img.depth)
             self.assertEqual(cv.GetSize(img), cv.GetSize(out_img))
-        self.assertRaises(TypeError, bo.create_same_image(self.fake_img)) #TODO: Problem here :s
+        self.assertRaises(TypeError, lambda: bo.create_same_image(self.fake_img))
         
-if __name__ == "__main__":
-    unittest.main()
+#if __name__ == "__main__":
+    #unittest.main()
