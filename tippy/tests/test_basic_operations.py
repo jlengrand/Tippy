@@ -4,6 +4,7 @@ Contains all tests for basic_operations module
 Created on Nov 19, 2011
 
 @author: Julien Lengrand-Lambert
+@email: julien@lengrand.fr
 '''
 
 

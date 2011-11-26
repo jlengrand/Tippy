@@ -4,6 +4,7 @@ Contains all tests for display_operations module
 Created on Nov 24, 2011
 
 @author: Julien Lengrand-Lambert
+@email: julien@lengrand.fr
 '''
 import unittest
 import cv

@@ -4,7 +4,7 @@ Contains all functions related to graphical display.
 Created on Nov 19, 2011
 
 @author: Julien Lengrand-Lambert
-
+@email: julien@lengrand.fr
 '''
 
 import sys
@@ -14,7 +14,7 @@ def display_single_image(img, name="Image", x_pos=0, y_pos=0, delay=0):
     """
     Displays an image on screen.
     Position can be chosen, and time on screen too.
-    Delay corresponds to the diplay time, in milliseconds.
+    Delay corresponds to the display time, in milliseconds.
     If delay =0, the Image stays on screen until user interaction.
     ----
     Ex:
@@ -27,7 +27,7 @@ def display_single_image(img, name="Image", x_pos=0, y_pos=0, delay=0):
         raise TypeError("(%s) Name :String expected!" % (sys._getframe().f_code.co_name))
     if (not isinstance(x_pos, int)) \
         or (not isinstance(x_pos, int)) \
-        or (not isinstance(x_pos, int)) : # TODO: find more pythonic way to do that ! 
+        or (not isinstance(x_pos, int)) :
             raise TypeError("(%s) Int expected!" % (sys._getframe().f_code.co_name))
 
     cv.NamedWindow(name)

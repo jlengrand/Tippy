@@ -5,6 +5,7 @@ No Image processing complex algorithms here.
 Created on Nov 19, 2011
 
 @author: Julien Lengrand-Lambert
+@email: julien@lengrand.fr
 '''
 
 import sys
@@ -15,7 +16,6 @@ def create_same_image(in_img, zero=0):
     Creates an image of same size, depth and number of channels as input image
     If zero is activated, the image content is set to 0 to avoid parasites.
     
-    If creation fails, function returns None.  
     ---
     Ex:
     img = cv.LoadImage("../data/tippy.jpg", cv.CV_LOAD_IMAGE_GRAYSCALE)
