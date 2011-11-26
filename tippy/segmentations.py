@@ -20,7 +20,7 @@ def simple_region_growing(img, seed, threshold=1):
     """
 
     # img test
-    if not(img.depth is cv.IPL_DEPTH_8U):
+    if not(img.depth == cv.IPL_DEPTH_8U):
         raise TypeError("(%s) 8U image expected!" % (sys._getframe().f_code.co_name))
     elif not(img.nChannels is 1):
         raise TypeError("(%s) 1C image expected!" % (sys._getframe().f_code.co_name))
@@ -83,7 +83,7 @@ def simple_region_growing(img, seed, threshold=1):
         #updating seed
         cur_pix = contour[index]
 
-        #removing pixel from neigbourhood
+        #removing pixel from neigborhood
         del contour[index]
         del contour_val[index]       
 
