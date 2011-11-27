@@ -8,6 +8,7 @@ Created on Nov 26, 2011
 '''
 import sys
 import cv
+import numpy
 
 def simple_region_growing(img, seed, threshold=1):
     """
@@ -31,7 +32,7 @@ def simple_region_growing(img, seed, threshold=1):
         raise ValueError("(%s) Positive value expected!" % (sys._getframe().f_code.co_name))
     # seed tests
     if not((isinstance(seed, tuple)) and (len(seed) is 2) ) : 
-        raise ValueError("(%s) (x, y) variable expected!" % (sys._getframe().f_code.co_name))
+        raise TypeError("(%s) (x, y) variable expected!" % (sys._getframe().f_code.co_name))
     
     dims = cv.GetSize(img)
     if (seed[0] or seed[1] ) < 0 :
@@ -56,7 +57,7 @@ def simple_region_growing(img, seed, threshold=1):
     cur_pix = [seed[0], seed[1]]
 
     #Spreading
-    while(dist<thres and size<pix_area):
+    while(dist<threshold and size<pix_area):
     #adding pixels
         for j in range(4):
             #select new candidate

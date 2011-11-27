@@ -20,10 +20,10 @@ class Test(unittest.TestCase):
         self.img_3c = cv.LoadImage("../data/tippy.jpg", cv.CV_LOAD_IMAGE_COLOR) # 3 channel image 
         self.img_16s = cv.CreateImage((15, 15), cv.IPL_DEPTH_16S, 1) # Non 8 bits image
         self.fake_img = 10 # non Image
-    
+
         self.dims = cv.GetSize(self.img_1c)
         
-        self.neg_thres = -0
+        self.neg_thres = -10
         self.bad_thres = "A"
         
         self.seed = (10, 10)
@@ -53,10 +53,14 @@ class Test(unittest.TestCase):
         self.assertRaises(TypeError, lambda: se.simple_region_growing(self.img_1c, self.bad_seed))
         self.assertRaises(TypeError, lambda: se.simple_region_growing(self.img_1c, self.long_seed))
         # output test
-        out_img = simple_region_growing(self.img_1c, self.seed)
+        out_img = se.simple_region_growing(self.img_1c, self.seed)
         self.assertEqual(out_img.depth, cv.IPL_DEPTH_8U)
         self.assertEqual(out_img.nChannels, 1)
-        self.assertEqual(cv.GetSize(out_img), cv.GetSize(self.img_1C))
+        self.assertEqual(cv.GetSize(out_img), cv.GetSize(self.img_1c))
+        # function result tests
+        img_gnu = cv.LoadImage("../data/gnu.jpg", cv.CV_LOAD_IMAGE_GRAYSCALE) # 1 channel image 
+        out_img = se.simple_region_growing(img_gnu, seed=(70, 106), threshold=20)
+        self.assertEqual(cv.CountNonZero(out_img), 584)
            
 #if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
