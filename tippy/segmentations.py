@@ -20,6 +20,11 @@ def simple_region_growing(img, seed, threshold=1):
     Outputs a single channel 8 bits binary (0 or 255) image. Extracted region is highlighted in white.
     """
 
+    try:
+        dims = cv.GetSize(img)
+    except TypeError:
+        raise TypeError("(%s) img : IplImage expected!" % (sys._getframe().f_code.co_name))
+
     # img test
     if not(img.depth == cv.IPL_DEPTH_8U):
         raise TypeError("(%s) 8U image expected!" % (sys._getframe().f_code.co_name))
@@ -34,7 +39,7 @@ def simple_region_growing(img, seed, threshold=1):
     if not((isinstance(seed, tuple)) and (len(seed) is 2) ) : 
         raise TypeError("(%s) (x, y) variable expected!" % (sys._getframe().f_code.co_name))
     
-    dims = cv.GetSize(img)
+
     if (seed[0] or seed[1] ) < 0 :
         raise ValueError("(%s) Seed should have positive values!" % (sys._getframe().f_code.co_name))
     elif ((seed[0] > dims[0]) or (seed[1] > dims[1])):

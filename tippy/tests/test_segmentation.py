@@ -44,6 +44,8 @@ class Test(unittest.TestCase):
         # Image type tests
         self.assertRaises(TypeError, lambda: se.simple_region_growing(self.img_3c, self.seed))
         self.assertRaises(TypeError, lambda: se.simple_region_growing(self.img_16s, self.seed))
+        self.assertRaises(TypeError, lambda: se.simple_region_growing(self.fake_img, self.seed))
+        
         # Threshold tests
         self.assertRaises(ValueError, lambda: se.simple_region_growing(self.img_1c, self.seed, self.neg_thres))
         self.assertRaises(TypeError, lambda: se.simple_region_growing(self.img_1c, self.seed, self.bad_thres))
