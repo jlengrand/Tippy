@@ -8,7 +8,7 @@ Here is a simple example of (simple) Region Growing algorithm in Python.
 
 A word about region growing (taken from Wikipedia), and this implementation : 
 "Region growing is a simple region-based image segmentation method. It is also classified as a pixel-based image segmentation method since it involves the selection of initial seed points.
-This approach to segmentation examines neighboring pixels of initial “seed points” and determines whether the pixel neighbors should be added to the region. The process is iterated on, in the same manner as general data clustering algorithms"
+This approach to segmentation examines neighboring pixels of initial "seed points" and determines whether the pixel neighbors should be added to the region. The process is iterated on, in the same manner as general data clustering algorithms"
 Basically, region growing is an iterative method used to extract similar parts of an image. One or several points are chosen as a start. The region then grows until it is finally blocked by the stop criteria. This criteria is generally an inside/outside region comparison (energy, size, . . .).
 Region growing is massively used in medical imaging, and object detection. Here is an example of application in automatic Mine Hunting, which I worked with last year at TNO. 
 
