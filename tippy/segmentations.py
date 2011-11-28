@@ -94,5 +94,3 @@ def simple_region_growing(img, seed, threshold=1):
         del contour_val[index]       
 
     return reg
-
-    ###
