@@ -30,6 +30,7 @@ def display_single_image(img, name="Image", x_pos=0, y_pos=0, delay=0):
         or (not isinstance(x_pos, int)) :
             raise TypeError("(%s) Int expected!" % (sys._getframe().f_code.co_name))
 
+    cv.StartWindowThread()
     cv.NamedWindow(name)
     cv.MoveWindow(name, x_pos, y_pos)
     cv.ShowImage(name, img)
