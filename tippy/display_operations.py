@@ -35,4 +35,4 @@ def display_single_image(img, name="Image", x_pos=0, y_pos=0, delay=0):
     cv.MoveWindow(name, x_pos, y_pos)
     cv.ShowImage(name, img)
     cv.WaitKey(delay)
-    
+    cv.DestroyWindow(name)
