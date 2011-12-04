@@ -10,13 +10,14 @@ import sys
 import cv
 import numpy
 
-def simple_region_growing(img, seed, threshold=1):
+def simple_region_growing(img, seed, threshold=1, conn=4):
     """
     A (very) simple implementation of region growing.
     Extracts a region of the input image depending on a start position and a stop condition. 
     The input should be a single channel 8 bits image and the seed a pixel position (x, y).
     The threshold corresponds to the difference between outside pixel intensity and mean intensity of region.
     In case no new pixel is found, the growing stops. 
+    The connectivity can be set to 4 or 8. 4-connectivity is taken by default, and 8-connectiviy requires most computations.
     Outputs a single channel 8 bits binary (0 or 255) image. Extracted region is highlighted in white.
     """
 
@@ -39,12 +40,20 @@ def simple_region_growing(img, seed, threshold=1):
     if not((isinstance(seed, tuple)) and (len(seed) is 2) ) : 
         raise TypeError("(%s) (x, y) variable expected!" % (sys._getframe().f_code.co_name))
     
-
     if (seed[0] or seed[1] ) < 0 :
         raise ValueError("(%s) Seed should have positive values!" % (sys._getframe().f_code.co_name))
     elif ((seed[0] > dims[0]) or (seed[1] > dims[1])):
         raise ValueError("(%s) Seed values greater than img size!" % (sys._getframe().f_code.co_name))
     
+    # Connectivity tests
+    if (not isinstance(conn, int)) : 
+        raise TypeError("(%s) Int expected!" % (sys._getframe().f_code.co_name))
+    if conn == 4:
+        orient = [(1, 0), (0, 1), (-1, 0), (0, -1)] # 4 connectivity
+    elif conn == 8:
+        orient = [(1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1), (0, -1), (1, -1)] # 8 connectivity
+    else:
+        raise ValueError("(%s) Connectivity type not known (4 or 8 available)!" % (sys._getframe().f_code.co_name))
 
     reg = cv.CreateImage( dims, cv.IPL_DEPTH_8U, 1)
     cv.Zero(reg)
@@ -57,14 +66,13 @@ def simple_region_growing(img, seed, threshold=1):
     contour = [] # will be [ [[x1, y1], val1],..., [[xn, yn], valn] ]
     contour_val = []
     dist = 0
-    # TODO: may be enhanced later with 8th connectivity
-    orient = [(1, 0), (0, 1), (-1, 0), (0, -1)] # 4 connectivity
+
     cur_pix = [seed[0], seed[1]]
 
     #Spreading
     while(dist<threshold and size<pix_area):
     #adding pixels
-        for j in range(4):
+        for j in range(len(orient)):
             #select new candidate
             temp_pix = [cur_pix[0] +orient[j][0], cur_pix[1] +orient[j][1]]
 
