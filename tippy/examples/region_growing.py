@@ -30,6 +30,7 @@ user_input = 0
 
 img_name = "../data/gnu.jpg"
 threshold = 20
+connectivity = 8
 img = cv.LoadImage(img_name, cv.CV_LOAD_IMAGE_GRAYSCALE)
 
 if user_input:
@@ -37,6 +38,6 @@ if user_input:
 else:
     seed = (70, 106)
 
-out_img = se.simple_region_growing(img, seed, threshold)
+out_img = se.simple_region_growing(img, seed, threshold, connectivity)
 
 do.display_single_image(out_img, "Region Growing result")
