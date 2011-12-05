@@ -8,6 +8,7 @@ Created on Nov 24, 2011
 '''
 import unittest
 import cv
+
 import tippy.display_operations as do
 
 class Test(unittest.TestCase):
@@ -18,7 +19,7 @@ class Test(unittest.TestCase):
         """
         This method is called before each test
         """
-        self.img = cv.LoadImage("../data/tippy.jpg", cv.CV_LOAD_IMAGE_COLOR) # 3 channel image 
+        self.img = cv.LoadImage("data/tippy.jpg", cv.CV_LOAD_IMAGE_COLOR) # 3 channel image 
         self.fake_img = 10 # non Image        
 
     def tearDown(self):

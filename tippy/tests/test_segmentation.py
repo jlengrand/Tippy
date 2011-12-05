@@ -10,14 +10,12 @@ import cv
 import tippy.segmentations as se
 
 class Test(unittest.TestCase):
-
-
     def setUp(self):
         """
         This method is called before each test
         """
-        self.img_1c = cv.LoadImage("../data/tippy.jpg", cv.CV_LOAD_IMAGE_GRAYSCALE) # 1 channel image 
-        self.img_3c = cv.LoadImage("../data/tippy.jpg", cv.CV_LOAD_IMAGE_COLOR) # 3 channel image 
+        self.img_1c = cv.LoadImage("data/tippy.jpg", cv.CV_LOAD_IMAGE_GRAYSCALE) # 1 channel image 
+        self.img_3c = cv.LoadImage("data/tippy.jpg", cv.CV_LOAD_IMAGE_COLOR) # 3 channel image 
         self.img_16s = cv.CreateImage((15, 15), cv.IPL_DEPTH_16S, 1) # Non 8 bits image
         self.fake_img = 10 # non Image
 
@@ -70,11 +68,11 @@ class Test(unittest.TestCase):
         self.assertRaises(ValueError, lambda: se.simple_region_growing(self.img_1c, self.seed, self.thres, self.other_conn))
         # function result tests
         # 4-conn
-        img_gnu = cv.LoadImage("../data/gnu.jpg", cv.CV_LOAD_IMAGE_GRAYSCALE) # 1 channel image 
+        img_gnu = cv.LoadImage("data/gnu.jpg", cv.CV_LOAD_IMAGE_GRAYSCALE) # 1 channel image 
         out_img = se.simple_region_growing(img_gnu, seed=(70, 106), threshold=20)
         self.assertEqual(cv.CountNonZero(out_img), 584)
         # 8-conn
-        img_gnu = cv.LoadImage("../data/gnu.jpg", cv.CV_LOAD_IMAGE_GRAYSCALE) # 1 channel image 
+        img_gnu = cv.LoadImage("data/gnu.jpg", cv.CV_LOAD_IMAGE_GRAYSCALE) # 1 channel image 
         out_img = se.simple_region_growing(img_gnu, seed=(70, 106), threshold=20, conn=8)
         self.assertEqual(cv.CountNonZero(out_img), 627)
                    

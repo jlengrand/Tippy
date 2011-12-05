@@ -1,0 +1,27 @@
+<project name="Tippy" default="tests" basedir=".">
+  	<taskdef resource="pyAntTasks.properties"/>
+  	<property name="src.dir" value="tippy"/>
+	<property name="ex.dir" value="tippy/examples"/>
+	<property name="tests.dir" value="tippy/tests"/>
+
+	<target name="compile all">
+		<py-compile dir="${src.dir}" pythonpath="${src.dir}" optimize="0"/>
+	</target>		
+		
+	<target name="compile examples">
+    	<py-compile dir="${ex.dir}" pythonpath="${ex.dir}" optimize="0"/>
+  	</target>
+
+	<target name="compile tests">
+    	<py-compile dir="${tests.dir}" pythonpath="${tests.dir}" optimize="0"/>
+  	</target>
+
+	<target name="tests">
+		<py-test pythonpath="." dir="${src.dir}">
+  	  		<fileset dir="${src.dir}">
+				<include name="*/test_*"/>
+	  		</fileset>
+  		</py-test>
+	</target> 
+
+</project>
