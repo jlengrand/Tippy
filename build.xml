@@ -1,10 +1,17 @@
 <project name="Tippy" default="tests" basedir=".">
   	<taskdef resource="pyAntTasks.properties"/>
+	
+	<property name="base.dir" value="."/>
   	<property name="src.dir" value="tippy"/>
 	<property name="ex.dir" value="examples"/>
 	<property name="tests.dir" value="tippy/tests"/>
+	<property name="doc.dir" value="doc"/>
 	<!--Clean Project -->
-	<!--TODO -->
+	<target name="clean project">
+		<delete>
+		    <fileset dir="${doc.dir}" includes="**/*"/>
+		</delete>
+	</target>	
 	<!--Compiling sources   -->
 	<target name="compile all">
 		<py-compile dir="${src.dir}" pythonpath="${src.dir}" optimize="0"/>
@@ -17,14 +24,20 @@
   	</target>
 	<!--Run all tests -->
 	<target name="tests">
-		<py-test pythonpath="." dir="${src.dir}">
+		<py-test pythonpath="${base.dir}" dir="${src.dir}">
   	  		<fileset dir="${src.dir}">
 				<include name="*/test_*"/>
 	  		</fileset>
   		</py-test>
 	</target> 
 	<!-- Generate Documentation --> 
-	<!--TODO -->
+	<target name="pydoc generation">
+		<py-doc pythonpath="${base.dir}" destdir="${doc.dir}">
+	       	<fileset dir="${base.dir}">
+	        	<include name="**/*"/>
+	      	</fileset>
+	    </py-doc>
+	</target>
 	<!-- Build Executable -->
 	<!--TODO -->
 </project>

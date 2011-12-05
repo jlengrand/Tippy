@@ -1,0 +1,43 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module tippy.segmentations</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="tippy.html"><font color="#ffffff">tippy</font></a>.segmentations</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/airballman/documents/workspace/Tippy/tippy/segmentations.py">/home/airballman/documents/workspace/Tippy/tippy/segmentations.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;method&nbsp;contains&nbsp;all&nbsp;functions&nbsp;segmentation&nbsp;related.<br>
+&nbsp;<br>
+Created&nbsp;on&nbsp;Nov&nbsp;26,&nbsp;2011<br>
+&nbsp;<br>
+@author:&nbsp;Julien&nbsp;Lengrand-Lambert<br>
+@email:&nbsp;julien@lengrand.fr</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="cv.html">cv</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-simple_region_growing"><strong>simple_region_growing</strong></a>(img, seed, threshold<font color="#909090">=1</font>, conn<font color="#909090">=4</font>)</dt><dd><tt>A&nbsp;(very)&nbsp;simple&nbsp;implementation&nbsp;of&nbsp;region&nbsp;growing.<br>
+Extracts&nbsp;a&nbsp;region&nbsp;of&nbsp;the&nbsp;input&nbsp;image&nbsp;depending&nbsp;on&nbsp;a&nbsp;start&nbsp;position&nbsp;and&nbsp;a&nbsp;stop&nbsp;condition.&nbsp;<br>
+The&nbsp;input&nbsp;should&nbsp;be&nbsp;a&nbsp;single&nbsp;channel&nbsp;8&nbsp;bits&nbsp;image&nbsp;and&nbsp;the&nbsp;seed&nbsp;a&nbsp;pixel&nbsp;position&nbsp;(x,&nbsp;y).<br>
+The&nbsp;threshold&nbsp;corresponds&nbsp;to&nbsp;the&nbsp;difference&nbsp;between&nbsp;outside&nbsp;pixel&nbsp;intensity&nbsp;and&nbsp;mean&nbsp;intensity&nbsp;of&nbsp;region.<br>
+In&nbsp;case&nbsp;no&nbsp;new&nbsp;pixel&nbsp;is&nbsp;found,&nbsp;the&nbsp;growing&nbsp;stops.&nbsp;<br>
+The&nbsp;connectivity&nbsp;can&nbsp;be&nbsp;set&nbsp;to&nbsp;4&nbsp;or&nbsp;8.&nbsp;4-connectivity&nbsp;is&nbsp;taken&nbsp;by&nbsp;default,&nbsp;and&nbsp;8-connectiviy&nbsp;requires&nbsp;most&nbsp;computations.<br>
+Outputs&nbsp;a&nbsp;single&nbsp;channel&nbsp;8&nbsp;bits&nbsp;binary&nbsp;(0&nbsp;or&nbsp;255)&nbsp;image.&nbsp;Extracted&nbsp;region&nbsp;is&nbsp;highlighted&nbsp;in&nbsp;white.</tt></dd></dl>
+</td></tr></table>
+</body></html>
