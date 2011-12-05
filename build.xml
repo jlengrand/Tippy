@@ -1,21 +1,21 @@
 <project name="Tippy" default="tests" basedir=".">
   	<taskdef resource="pyAntTasks.properties"/>
   	<property name="src.dir" value="tippy"/>
-	<property name="ex.dir" value="tippy/examples"/>
+	<property name="ex.dir" value="examples"/>
 	<property name="tests.dir" value="tippy/tests"/>
-
+	<!--Clean Project -->
+	<!--TODO -->
+	<!--Compiling sources   -->
 	<target name="compile all">
 		<py-compile dir="${src.dir}" pythonpath="${src.dir}" optimize="0"/>
 	</target>		
-		
 	<target name="compile examples">
     	<py-compile dir="${ex.dir}" pythonpath="${ex.dir}" optimize="0"/>
   	</target>
-
 	<target name="compile tests">
     	<py-compile dir="${tests.dir}" pythonpath="${tests.dir}" optimize="0"/>
   	</target>
-
+	<!--Run all tests -->
 	<target name="tests">
 		<py-test pythonpath="." dir="${src.dir}">
   	  		<fileset dir="${src.dir}">
@@ -23,5 +23,8 @@
 	  		</fileset>
   		</py-test>
 	</target> 
-
+	<!-- Generate Documentation --> 
+	<!--TODO -->
+	<!-- Build Executable -->
+	<!--TODO -->
 </project>
