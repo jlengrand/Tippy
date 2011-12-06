@@ -29,7 +29,13 @@
 				<include name="*/test_*"/>
 	  		</fileset>
   		</py-test>
-	</target> 
+	</target>
+	<!--Run all examples -->
+	<target name="run examples">
+		<!--TODO -->
+		<py-run script="${ex.dir}/region_growing.py" pythonpath="${base.dir}" optimize="0">
+		</py-run>	
+	</target> 	
 	<!-- Generate Documentation --> 
 	<target name="pydoc generation">
 		<py-doc pythonpath="${base.dir}" destdir="${doc.dir}">

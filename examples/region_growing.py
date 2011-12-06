@@ -28,7 +28,7 @@ import tippy.display_operations as do
 
 user_input = 0
 
-img_name = "data/gnu.jpg"
+img_name = "tippy/data/gnu.jpg"
 threshold = 20
 connectivity = 8
 img = cv.LoadImage(img_name, cv.CV_LOAD_IMAGE_GRAYSCALE)
