@@ -36,7 +36,7 @@ def compute_histogram(img, bin_fact=cv.IPL_DEPTH_8U, min_range=0):
     # bin_fact test
     if (bin_fact <= 0 or ((bin_fact % 2) != 0)):
         raise ValueError("(%s) Positive odd integer expected!" % (sys._getframe().f_code.co_name))
-    elif type(bin_fact) != int:
+    elif type(bin_fact) not in [int, long]:
         raise TypeError("(%s) Positive odd integer expected!" % (sys._getframe().f_code.co_name))
 
     # min_range test
@@ -58,6 +58,15 @@ def compute_histogram(img, bin_fact=cv.IPL_DEPTH_8U, min_range=0):
 def hist2table(hist):
     """
     Transform an histogram into a (numpy) table of values.
-    This way, it is easier to process.    
+    This way, it is easier to process for calculations.
+    
+    NOTE : Supports only 1 channel / 8 bits images for now. 
+    More should be added soon.    
     """
+    try:
+        hist.bins
+    except AttributeError:
+        raise TypeError("(%s) Histogram expected!" % (sys._getframe().f_code.co_name))   
+    # TO BE CONTINUED . . . 
     pass
+    

@@ -45,6 +45,11 @@ class Test(unittest.TestCase):
         # testing min_range. It can be either negative or even.
         self.assertRaises(TypeError, lambda: st.compute_histogram(self.img_1c, self.val, self.string) ) 
 
+    def test_hist2table(self):
+        # testing input histogram
+        # hist = st.compute_histogram(self.img_1c)
+        self.assertRaises(TypeError, lambda: st.hist2table(self.val))
+        
 #if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     #unittest.main()
