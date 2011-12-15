@@ -23,7 +23,7 @@ class Test(unittest.TestCase):
         self.val = 10 # non Image
         self.neg_val = -10 # non Image
         self.string = "A" # non Image
-
+        
     def tearDown(self):
         """
         This method is called after each test
@@ -33,23 +33,48 @@ class Test(unittest.TestCase):
     #--- 
     ## TESTS
     def test_compute_histogram(self):
+        hist = st.Histogram()
         # testing input image
-        # st.compute_histogram(self.img_1c)
-        self.assertRaises(TypeError, lambda: st.compute_histogram(self.val) )
-        self.assertRaises(TypeError, lambda: st.compute_histogram(self.img_3c) )        
-        
+        self.assertRaises(TypeError, lambda:hist.compute_histogram(self.val) )
+        self.assertRaises(TypeError, lambda:hist.compute_histogram(self.img_3c))       
+    
         # testing bin_fact
-        self.assertRaises(ValueError, lambda: st.compute_histogram(self.img_1c, self.neg_val) )
-        self.assertRaises(TypeError, lambda: st.compute_histogram(self.img_1c, self.string) ) 
+        self.assertRaises(ValueError, 
+                          lambda: hist.compute_histogram(self.img_1c, self.neg_val))
+        self.assertRaises(TypeError, 
+                          lambda: hist.compute_histogram(self.img_1c, self.string)) 
 
         # testing min_range. It can be either negative or even.
-        self.assertRaises(TypeError, lambda: st.compute_histogram(self.img_1c, self.val, self.string) ) 
+        self.assertRaises(TypeError, 
+                          lambda: hist.compute_histogram(self.img_1c, self.val, self.string))     
 
     def test_hist2table(self):
-        # testing input histogram
-        # hist = st.compute_histogram(self.img_1c)
-        self.assertRaises(TypeError, lambda: st.hist2table(self.val))
+        hist = st.Histogram()
+        # testing input histogram        
+        self.assertRaises(TypeError, lambda: hist.hist2table(self.val))
+        # testing output size 
+        hist.compute_histogram(self.img_1c)
+        histable = hist.hist2table()
+        self.assertEqual(256, len(histable))
         
+    def test_hist2image(self):
+        hist = st.Histogram()
+        # testing input histogram
+        self.assertRaises(TypeError, lambda: hist.hist2image(self.val))        
+        # testing scale inputs 
+        self.assertRaises(TypeError, 
+                          lambda: hist.hist2image(hist, self.string))
+        self.assertRaises(TypeError, 
+                          lambda: hist.hist2image(hist, self.neg_val))
+        self.assertRaises(TypeError, 
+                          lambda: hist.hist2image(hist, self.val, self.string))
+        self.assertRaises(TypeError, 
+                          lambda: hist.hist2image(hist, self.val, self.neg_val))
+        # testing range inputs
+        self.assertRaises(TypeError, 
+                          lambda: hist.hist2image(hist, self.val, self.val, self.string))
+        self.assertRaises(TypeError, 
+                          lambda: hist.hist2image(hist, self.val, self.val, self.neg_val))     
 #if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     #unittest.main()
