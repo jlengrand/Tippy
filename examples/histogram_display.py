@@ -23,12 +23,10 @@ import cv
 import tippy.statistics as st
 import tippy.display_operations as do
 
-hist = st.Histogram()
-
 img_name = "tippy/data/gnu.jpg"
-img = cv.LoadImage(img_name, cv.CV_LOAD_IMAGE_GRAYSCALE)
-hist.compute_histogram(img)
+img = cv.LoadImage(img_name, cv.CV_LOAD_IMAGE_COLOR)
+hist = st.Histogram(img)
 
 hist_img = hist.hist2image() 
 
-do.display_single_image(hist_img, "Gray-Level histogram of the gnu image")
+do.display_single_image(hist_img[0], "Gray-Level histogram of the gnu image")

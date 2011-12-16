@@ -18,12 +18,13 @@ class Histogram():
     NOTE : Supports only 1 channel / 8 bits images for now. 
     More should be added soon.    
     """
-    def __init__(self):
+    def __init__(self, img, bin_fact=cv.IPL_DEPTH_8U, min_range=0):
         self.cvhist = None
         self.min_range = 0
         self.depth = cv.IPL_DEPTH_8U
         self.nb_bins = 0 
         self.channels = 0
+        self.compute_histogram(img, bin_fact, min_range)
     
     def compute_histogram(self, img, bin_fact=cv.IPL_DEPTH_8U, min_range=0):
         """
@@ -40,7 +41,7 @@ class Histogram():
         """
         # TESTS
         try:
-            cv.GetSize(img)
+            dims = cv.GetSize(img)
         except TypeError:
             raise TypeError("(%s) img : IplImage expected!" 
                             % (sys._getframe().f_code.co_name))
@@ -49,10 +50,9 @@ class Histogram():
         if not(img.depth == cv.IPL_DEPTH_8U):
             raise TypeError("(%s) 8U image expected!" 
                             % (sys._getframe().f_code.co_name))
-        elif not(img.nChannels is 1):
-            raise TypeError("(%s) 1C image expected!" 
-                            % (sys._getframe().f_code.co_name))
-        
+        if img.nChannels not in [1, 3]:
+            raise ValueError("(%s) 1 or 3 channels image expected!" 
+                            % (sys._getframe().f_code.co_name))        
         # bin_fact test
         if (bin_fact <= 0 or ((bin_fact % 2) != 0)):
             raise ValueError("(%s) Positive odd integer expected!" 
@@ -71,15 +71,41 @@ class Histogram():
         self.depth = int(img.depth)
         max_range = pow(2, self.depth)
         self.ranges = [min_range, max_range]
-    
+        
+        img_list = []
+        # preparing images depending on nChannels
+        if self.channels == 1:
+            img_list = [img]
+        elif self.channels == 3:
+            # TODO: change this into function
+            img_1 = cv.CreateImage(dims, cv.IPL_DEPTH_8U, 1)
+            img_2 = cv.CreateImage(dims, cv.IPL_DEPTH_8U, 1)
+            img_3 = cv.CreateImage(dims, cv.IPL_DEPTH_8U, 1)
+            
+            cv.Split(img, img_1, img_2, img_3, None)            
+            img_list = [img_1, img_2, img_3]
+            
+        self.cvhist = self._compute_1ch_histogram(img_list)
+        
+    def _compute_1ch_histogram(self, img_list):
+        """
+        DESIGNED FOR INTERNAL USE ONLY
+        CAREFUL, NO VERIFICATIONS PERFORMED
+        """
         dims = [self.nb_bins]
         all_ranges = [self.ranges]
         
-        self.cvhist = cv.CreateHist( dims, 
-                                     cv.CV_HIST_ARRAY, 
-                                     all_ranges, 
-                                     uniform=1)
-        cv.CalcHist([img], self.cvhist)    
+        hist_list = [] 
+        for img in img_list:
+            hist = cv.CreateHist( dims, 
+                              cv.CV_HIST_ARRAY, 
+                              all_ranges, 
+                              uniform=1)
+            cv.CalcHist([img], hist)
+            
+            hist_list.append(hist)   
+
+        return hist_list
         
     def hist2table(self):
         """
@@ -94,9 +120,11 @@ class Histogram():
                             % (sys._getframe().f_code.co_name))
         
         histable = []
-        for jj in range(self.nb_bins):                
-            histable.append(self.cvhist.bins[jj])
-    
+        for ii in range(self.channels):
+            hist_list = []
+            for jj in range(self.nb_bins):                
+                hist_list.append(self.cvhist[ii].bins[jj])
+            histable.append(hist_list)
         return histable
     
     def hist2image(self, scale_x=3, scale_y=3, y_range=64):
