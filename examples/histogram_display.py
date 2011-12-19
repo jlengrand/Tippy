@@ -18,13 +18,3 @@ To end the script, the user simply needs to hit a keyboard key with the input
 image in the foreground. 
 '''
 
-import cv
-import tippy.statistics as st
-import tippy.display_operations as do
-
-img_name = "tippy/data/tippy.jpg"
-img = cv.LoadImage(img_name, cv.CV_LOAD_IMAGE_COLOR)
-hist = st.Histogram(img)
-
-imgs = hist.to_images() # list of Red, Green, Blue channels
-do.display_single_image(imgs[2], "Blue channel histogram of the tippy image")
