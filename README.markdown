@@ -83,5 +83,5 @@ Image: Paul Martin Eldridge / FreeDigitalPhotos.net
 I would enjoy having feedback if you use this theme. 
 Feel free to mail me for any comment or request. 
 
-You can contact me at jlengrand at gmail dot com, or in my [current website](http://www.lengrandlambert.fr)
+You can contact me at julien at lengrand dot fr, or on my [current website](http://www.lengrand.fr)
 
