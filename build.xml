@@ -14,13 +14,13 @@
 	</target>	
 	<!--Compiling sources   -->
 	<target name="compile all">
-		<py-compile dir="${src.dir}" pythonpath="${src.dir}" optimize="0"/>
+		<py-compile dir="${base.dir}" pythonpath="${src.dir}" optimize="0"/>
 	</target>		
 	<target name="compile examples">
-    	<py-compile dir="${ex.dir}" pythonpath="${ex.dir}" optimize="0"/>
+    	<py-compile dir="${base.dir}" pythonpath="${ex.dir}" optimize="0"/>
   	</target>
 	<target name="compile tests">
-    	<py-compile dir="${tests.dir}" pythonpath="${tests.dir}" optimize="0"/>
+    	<py-compile dir="${base.dir}" pythonpath="${tests.dir}" optimize="0"/>
   	</target>
 	<!--Run all tests -->
 	<target name="tests">

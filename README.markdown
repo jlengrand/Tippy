@@ -52,12 +52,12 @@ Please note that the library is in current development, and is only available as
 
 To use Tippy, you will need the last OpenCV version with Python bindings. A descriptive tutorial for Linux systems can be found [here](http://opencv.willowgarage.com/wiki/InstallGuide%20%3A%20Debian).
 
-Being in the very beginning of its development, Tippy yet is not available in packaged version. To use it, you will need to downlad the source file and include them in your application. 
+Being in the very beginning of its development, Tippy yet is not available in packaged version. To use it, you will need to download the source file and include them in your application. 
 
 The action is pretty straightforward though:
 - Download the tippy folder of the Tippy project
 - Place it in your working directory.
-- import parts of the library as you wish by using 'import file' in your python code. 
+- import parts of the library as you wish by using 'import file' in your Python code. 
 
 ## Hints and Usage
 
@@ -67,13 +67,13 @@ In addition, tests should be carried out so that the code contain as few hidden 
 
 Finally, functions should be heavily documented to help users dig in without encounter language problems. 
 
-I am currently thinking about generating a more complete and redable documentation, such as html output. It should come soon.
+I am currently thinking about generating a more complete and readable documentation, such as html output. It should come soon.
 
 ## Copyright
 
 Copyright © 2011 Julien Lengrand-Lambert
 
-Files are licensed under the under the BSD License. See the file COPYING for details.
+Files are licensed under the under the BSD License. See the file LICENCE.txt for details.
 You are free to use it as you wish, but I would love if you let me know ^^
 
 Image: Paul Martin Eldridge / FreeDigitalPhotos.net
@@ -83,5 +83,4 @@ Image: Paul Martin Eldridge / FreeDigitalPhotos.net
 I would enjoy having feedback if you use this theme. 
 Feel free to mail me for any comment or request. 
 
-You can contact me at julien at lengrand dot fr, or on my [current website](http://www.lengrand.fr)
-
+You can contact me at julien@lengrand.fr, or on my [current website](http://www.lengrand.fr)
