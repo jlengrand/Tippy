@@ -21,18 +21,23 @@ import cv
 import tippy.statistics as st
 import tippy.display_operations as do
 
-<<<<<<< HEAD
+# test with 8 bits color image
 img_name = "tippy/data/tippy.jpg"
 img = cv.LoadImage(img_name, cv.CV_LOAD_IMAGE_COLOR)
 hist = st.Histogram(img)
-
+    
 imgs = hist.to_images() # list of Red, Green, Blue channels
 do.display_single_image(imgs[2], "Blue channel histogram of the tippy image")
-=======
-img_name = "tippy/data/gnu.jpg"
-img = cv.LoadImage(img_name, cv.CV_LOAD_IMAGE_COLOR)
-hist = st.Histogram(img)
 
-hist_img = hist.hist2image() 
 
-do.display_single_image(hist_img[0], "Gray-Level histogram of the gnu image")
+# test 16 bits histogram, with 4096 range
+# special tortuous case :
+# 12 bits encoded image
+# Taken as 16 bits image, only histogram range to be changed. 
+img_name = "tippy/data/peaks.tif"
+img = cv.LoadImage(img_name, cv.CV_LOAD_IMAGE_UNCHANGED)
+img_depth = 12
+hist = st.Histogram(img, img_depth)
+    
+tables = hist.to_tables() # list of values. Only one item in list
+print max(tables[0]) # search for the max value of histogram  
