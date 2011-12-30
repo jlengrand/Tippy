@@ -1,6 +1,6 @@
-===========
+======================================================
 Tippy : another Toolbox for Image Processing in PYthon
-===========
+======================================================
 
 
 Tippy is a set of functions and methods designed to reduce as much as possible the code needed to deploy an <Image Processing> or <Computer Vision> algorithm. It is based on the famous <OpenCV> library and its Python bindings.
@@ -33,9 +33,19 @@ Typical usage often looks like this::
 
 
 A Installation
-=========
+==============
 
-To use Tippy, you will need the last OpenCV version with Python bindings. A descriptive tutorial for Linux systems can be found here :http://opencv.willowgarage.com/wiki/InstallGuide%20%3A%20Debian.
+To use Tippy, you will need the last OpenCV version with Python bindings. A descriptive tutorial for Linux systems can be found `here <http://opencv.willowgarage.com/wiki/InstallGuide%20%3A%20Debian>`_.
+
+To be sure that you can use tippy, simply run python in command line and try to import OpenCV ::
+
+	Python 2.7.2+ (default, Oct  4 2011, 20:03:08) 
+	[GCC 4.6.1] on linux2
+	Type "help", "copyright", "credits" or "license" for more information.
+	>>> import cv
+
+If no error appears, Tippy shouold be installed without problems. 	
+
 
 Being in the very beginning of its development, Tippy yet is not available in packaged version. To use it, you will need to download the source file and include them in your application. 
 
@@ -45,7 +55,7 @@ The action is pretty straightforward though:
 * import parts of the library as you wish by using 'import file' in your Python code. 
 
 B Hints and Usage
-=========
+=================
 
 Important points of Tippy are documentation and examples. 
 An example will be create for every single function present in the Tippy package, so that it can easily be used by everyone. 
@@ -56,7 +66,7 @@ Finally, functions should be heavily documented to help users dig in without enc
 I am currently thinking about generating a more complete and readable documentation, such as html output. It should come soon.
 
 C Copyright
-=========
+===========
 
 Copyright © 2011 Julien Lengrand-Lambert
 
@@ -72,4 +82,4 @@ D Contact
 I would enjoy having feedback if you use this theme. 
 Feel free to mail me for any comment or request. 
 
-You can contact me at julien@lengrand.fr, or on my current website : http://www.lengrand.fr 
+You can contact me at julien@lengrand.fr, or on `my current website <http://www.lengrand.fr>`_.

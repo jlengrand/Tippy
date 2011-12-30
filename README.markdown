@@ -51,6 +51,17 @@ Please note that the library is in current development, and is only available as
 ## Installation
 
 To use Tippy, you will need the last OpenCV version with Python bindings. A descriptive tutorial for Linux systems can be found [here](http://opencv.willowgarage.com/wiki/InstallGuide%20%3A%20Debian).
+To be sure that you can use tippy, simply run python in command line and try to import OpenCV:
+```Python
+Python 2.7.2+ (default, Oct  4 2011, 20:03:08) 
+[GCC 4.6.1] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import cv
+```
+
+
+If no error appears, Tippy shouold be installed without problems. 	
+
 
 Being in the very beginning of its development, Tippy yet is not available in packaged version. To use it, you will need to download the source file and include them in your application. 
 
