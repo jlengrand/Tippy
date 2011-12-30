@@ -3,7 +3,7 @@
 	
 	<property name="base.dir" value="."/>
   	<property name="src.dir" value="tippy"/>
-	<property name="ex.dir" value="examples"/>
+	<property name="ex.dir" value="tippy/examples"/>
 	<property name="tests.dir" value="tippy/tests"/>
 	<property name="doc.dir" value="doc"/>
 	<!--Clean Project -->
