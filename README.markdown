@@ -91,7 +91,7 @@ Image: Paul Martin Eldridge / FreeDigitalPhotos.net
 
 ## Contact
 
-I would enjoy having feedback if you use this theme. 
+I would enjoy having feedback if you use this library. 
 Feel free to mail me for any comment or request. 
 
 You can contact me at julien@lengrand.fr, or on my [current website](http://www.lengrand.fr)
