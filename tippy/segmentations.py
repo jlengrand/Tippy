@@ -84,8 +84,6 @@ def simple_region_growing(img, seed, threshold=1, conn=4):
                 contour_val.append(img[temp_pix[1], temp_pix[0]] )
                 reg[temp_pix[1], temp_pix[0]] = 150
         #add the nearest pixel of the contour in it
-        dist = abs(int(numpy.mean(contour_val)) - mean_reg)
-
         dist_list = [abs(i - mean_reg) for i in contour_val ]
         dist = min(dist_list)    #get min distance
         index = dist_list.index(min(dist_list)) #mean distance index
